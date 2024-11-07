@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 // ルーティング設計
-app.use("/api/v1/tasks", taskRoutes); // Use /api/v1/tasks as a prefix for all routes in tasks.js
+app.use("/api/tasks", taskRoutes); // Use /api/v1/tasks as a prefix for all routes in tasks.js
 
 // データベース接続
 const start = async () => { // 非同期処理を行う関数を定義
