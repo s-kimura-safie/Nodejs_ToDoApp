@@ -1,4 +1,4 @@
-const Task = require('../models/Task'); // Import the Task model. Task はスキーマの名前
+const Task = require('../models/taskModel'); // Import the Task model. Task はスキーマの名前
 
 const getAllTasks = async (req, res) => {
     const allTasks = await Task.find({});
