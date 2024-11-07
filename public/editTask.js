@@ -11,7 +11,7 @@ console.log(id);
 // Show the task id
 const showTask = async () => {
   try {
-    const { data: task } = await axios.get(`/api/v1/tasks/${id}`); // {data:task}:taskのdataを取得
+    const { data: task } = await axios.get(`/api/tasks/${id}`); // {data:task}:taskのdataを取得
     const { _id, completed, name } = task;
     taskIdDOM.textContent = _id;
     taskNameDOM.value = name;
@@ -27,7 +27,7 @@ showTask();
 editFormDOM.addEventListener("submit", async (event) => {
   event.preventDefault();
   try {
-    await axios.patch(`/api/v1/tasks/${id}`, {
+    await axios.patch(`/api/tasks/${id}`, {
       name: taskNameDOM.value,
       completed: taskCompletedDOM.checked,
     });

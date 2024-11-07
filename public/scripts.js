@@ -12,7 +12,7 @@ const formAlertDOM = document.querySelector(".form-alert");
 const showTasks = async () => {
   try {
     // 自作のAPIをたたく
-    const { data: tasks } = await axios.get("/api/v1/tasks");
+    const { data: tasks } = await axios.get("/api/tasks");
 
     // Alert when there is no task
     if (tasks.length < 1) {
@@ -58,7 +58,7 @@ formDOM.addEventListener("submit", async (event) => {
   event.preventDefault(); // 送信ボタンを押したときのリロードを防ぐ
   const newName = taskInputDOM.value; // taskInputDOMのvalueを取得
   try {
-    await axios.post("/api/v1/tasks", { name: newName });
+    await axios.post("/api/tasks", { name: newName });
     showTasks(); // Update the tasks
     taskInputDOM.value = ""; // Clear
 
@@ -91,7 +91,7 @@ tasksDOM.addEventListener("click", async (event) => {
     const id = element.parentElement.dataset.id; // クリックされた要素のdata-idを取得
     console.log(id);
     try {
-      await axios.delete(`/api/v1/tasks/${id}`);
+      await axios.delete(`/api/tasks/${id}`);
       showTasks(); // Update the tasks
     } catch (error) {
       console.log(error);
